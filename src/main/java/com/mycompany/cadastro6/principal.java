@@ -8,9 +8,9 @@ package com.mycompany.cadastro6;
  *
  * @author aluno
  */
-public class Cadastro6 {
+public class principal {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        system.out.println("Hello World!");
     }
 }
