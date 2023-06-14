@@ -15,10 +15,10 @@ public class frcadastrodealuno extends javax.swing.JFrame {
 	 */
 	public frcadastrodealuno() {
 		initComponents();
-		 edtnome.setEnabled(true);
-                 edtsexo.setEnabled(true);
-                 edtidade.setEnabled(true);
-                 edtmatricula.setEnabled(true);
+		 edtnome.setEnabled(false);
+                 edtsexo.setEnabled(false);
+                 edtidade.setEnabled(false);
+                 edtmatricula.setEnabled(false);
 		 edtamodeingresso.setEnabled(true);
 	}
 
