@@ -15,11 +15,10 @@ public class frcadastrodealuno extends javax.swing.JFrame {
 	 */
 	public frcadastrodealuno() {
 		initComponents();
-		 edtnome.setEnabled(false);
-                 edtsexo.setEnabled(false);
-                 edtidade.setEnabled(false);
-                 edtmatricula.setEnabled(false);
-		 edtamodeingresso.setEnabled(true);
+		
+		this.resetarCampos(true);
+		 
+
 	}
 
 	/**
@@ -74,6 +73,11 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                 });
 
                 btcancelar.setText("cancelar");
+                btcancelar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btcancelarActionPerformed(evt);
+                        }
+                });
 
                 btnovo.setText("novo");
                 btnovo.addActionListener(new java.awt.event.ActionListener() {
@@ -220,8 +224,32 @@ public class frcadastrodealuno extends javax.swing.JFrame {
 
         private void btnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnovoActionPerformed
                 // TODO add your handling code here:
+		edtnome.setEnabled(true);
+                edtsexo.setEnabled(true);
+                edtidade.setEnabled(true);
+               edtmatricula.setEnabled(true);
+	       edtamodeingresso.setEnabled(true);
         }//GEN-LAST:event_btnovoActionPerformed
 
+        private void btcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcancelarActionPerformed
+           this.resetarCampos(false);
+        }//GEN-LAST:event_btcancelarActionPerformed
+
+	public void resetarCampos(boolean flag) {
+        edtnome.setEnabled(flag);
+        edtsexo.setEnabled(flag);
+        edtidade.setEnabled(flag);
+        edtmatricula.setEnabled(flag);
+	edtamodeingresso.setEnabled(flag);
+
+    if (!flag){    
+      edtnome.setText("");
+      edtsexo.setText("");
+      edtidade.setText("");
+      edtmatricula.setText("");
+      edtamodeingresso.setText("");
+    }
+}
 	/**
 	 * @param args the command line arguments
 	 */
