@@ -4,6 +4,9 @@
  */
 package com.mycompany.cadastro6.visao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author aluno
@@ -41,14 +44,14 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                 edtnome = new javax.swing.JTextField();
                 edtmatricula = new javax.swing.JTextField();
                 edtsexo = new javax.swing.JTextField();
-                edtamodeingresso = new javax.swing.JTextField();
+                edtanodeingresso = new javax.swing.JTextField();
                 btcancelar = new javax.swing.JButton();
                 btnovo = new javax.swing.JButton();
                 btsalvar = new javax.swing.JButton();
                 btedita = new javax.swing.JButton();
                 btexcluir = new javax.swing.JButton();
-                jPanel2 = new javax.swing.JPanel();
                 txtresultado = new java.awt.TextArea();
+                jPanel2 = new javax.swing.JPanel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +90,11 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                 });
 
                 btsalvar.setText("salvar");
+                btsalvar.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btsalvarActionPerformed(evt);
+                        }
+                });
 
                 btedita.setText("editar");
 
@@ -132,13 +140,16 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                                                                                 .addComponent(btsalvar)
                                                                                 .addGap(34, 34, 34)
                                                                                 .addComponent(btexcluir))
-                                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                                .addComponent(edtamodeingresso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                                                                                .addComponent(edtmatricula, javax.swing.GroupLayout.Alignment.LEADING))))))
+                                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                                                        .addComponent(edtanodeingresso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                                                                        .addComponent(edtmatricula, javax.swing.GroupLayout.Alignment.LEADING))
+                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                                                                                .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(41, 41, 41)
                                                 .addComponent(btnovo)))
-                                .addContainerGap(292, Short.MAX_VALUE))
+                                .addGap(31, 31, 31))
                 );
                 jPanel1Layout.setVerticalGroup(
                         jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,15 +161,6 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                                         .addComponent(edtnome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(24, 24, 24)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(edtmatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(lbmatricula))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(lbanodeingresso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(edtamodeingresso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(37, 37, 37)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(edtidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,8 +168,20 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(lbsexo)
-                                                        .addComponent(edtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                                        .addComponent(edtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(24, 24, 24)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(edtmatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(lbmatricula))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(lbanodeingresso, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(edtanodeingresso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btcancelar)
                                         .addComponent(btedita)
@@ -181,17 +195,11 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(232, 232, 232)
-                                .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
                 );
                 jPanel2Layout.setVerticalGroup(
                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(txtresultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(43, Short.MAX_VALUE))
+                        .addGap(0, 393, Short.MAX_VALUE)
                 );
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,20 +207,20 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                 layout.setHorizontalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                        .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(191, 191, 191))
                 );
                 layout.setVerticalGroup(
                         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap())
+                                .addGap(21, 21, 21))
                 );
 
                 pack();
@@ -228,26 +236,45 @@ public class frcadastrodealuno extends javax.swing.JFrame {
                 edtsexo.setEnabled(true);
                 edtidade.setEnabled(true);
                edtmatricula.setEnabled(true);
-	       edtamodeingresso.setEnabled(true);
+	       edtanodeingresso.setEnabled(true);
         }//GEN-LAST:event_btnovoActionPerformed
 
         private void btcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcancelarActionPerformed
            this.resetarCampos(false);
         }//GEN-LAST:event_btcancelarActionPerformed
 
+        private void btsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalvarActionPerformed
+                // TODO add your handling code here:
+		 Aluno a = new Aluno();
+		 a.setnome(edtnome.getText());
+		 a.setsexo(edtsexo.getText().charAt(0));
+		 int aux = Integer.parseInt(edtidade.getText() );
+		 a.setidade(aux);
+		 a.setMatricula(edtmatricula.getText());
+		 //SimpleDateFormat formato = new SimpleDateFormat("yyyy");
+		 //Date ano = formato.parse(edtanodeingresso.getText());
+		 aux = Integer.parseInt(edtanodeingresso.getText());
+		 a.setanodeingresso( aux);
+	
+		 
+
+		txtresultado.setText(a.toString()); //mostra o resultado
+		this.resetarCampos(false);
+        }//GEN-LAST:event_btsalvarActionPerformed
+
 	public void resetarCampos(boolean flag) {
         edtnome.setEnabled(flag);
         edtsexo.setEnabled(flag);
         edtidade.setEnabled(flag);
         edtmatricula.setEnabled(flag);
-	edtamodeingresso.setEnabled(flag);
+	edtanodeingresso.setEnabled(flag);
 
     if (!flag){    
       edtnome.setText("");
       edtsexo.setText("");
       edtidade.setText("");
       edtmatricula.setText("");
-      edtamodeingresso.setText("");
+      edtanodeingresso.setText("");
     }
 }
 	/**
@@ -292,7 +319,7 @@ public class frcadastrodealuno extends javax.swing.JFrame {
         private javax.swing.JButton btexcluir;
         private javax.swing.JButton btnovo;
         private javax.swing.JButton btsalvar;
-        private javax.swing.JTextField edtamodeingresso;
+        private javax.swing.JTextField edtanodeingresso;
         private javax.swing.JTextField edtidade;
         private javax.swing.JTextField edtmatricula;
         private javax.swing.JTextField edtnome;
